@@ -20,8 +20,7 @@ Este projeto é um exemplo de aplicação CRUD (Create, Read, Update, Delete) us
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
-   cd nome-do-repositorio
+   git clone https://github.com/benetesla/Spring-JPA-H2-DATABASE.git
    ```
 
 2. Compile o projeto com Maven:
