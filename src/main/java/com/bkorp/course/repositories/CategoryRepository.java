@@ -2,8 +2,8 @@ package com.bkorp.course.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.bkorp.course.entities.Orders;
+import com.bkorp.course.entities.Category;
 
-public interface CategoryRepository extends JpaRepository<Orders, Long> {
+public interface CategoryRepository extends JpaRepository<Category, Long> {
 
 }

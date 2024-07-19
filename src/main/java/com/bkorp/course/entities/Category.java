@@ -1,11 +1,16 @@
 package com.bkorp.course.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -18,12 +23,20 @@ public class Category implements Serializable {
     private Long id;
     private String name;
 
+    @JsonIgnore
+    @ManyToMany(mappedBy = "categories")
+    private Set<Product> products = new HashSet<>();
+
     public Category() {
     }
 
     public Category(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public Set<Product> getProducts() {
+        return products;
     }
 
     public Category(String name) {
@@ -41,7 +54,7 @@ public class Category implements Serializable {
     // hashcode by id
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return id != null ? id.hashCode() : 0;
     }
 
     // equals by id
@@ -54,6 +67,6 @@ public class Category implements Serializable {
             return false;
         }
         Category category = (Category) obj;
-        return id.equals(category.id);
+        return id != null ? id.equals(category.id) : category.id == null;
     }
 }
